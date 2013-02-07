@@ -1,10 +1,13 @@
 package com.liuan.app;
 
+
+
 public class EnumNPE {
+	//private static Logger LOGGER = LoggerFactory.getLogger(EnumNPE.class);
 	public static void main(String[] args) {
 		//ClassLoader.getSystemClassLoader().setDefaultAssertionStatus(true);
-	  doExport(null);//抛NPE，switch的枚举是根据枚举的排序值匹配的,所以使用之前要判空
-	  //doExport(LogLevel.FATAL);
+	  //doExport(null);//抛NPE，switch的枚举是根据枚举的排序值匹配的,所以使用之前要判空
+	  doExport(LogLevel.FATAL);
 	}
 
 	public static void doExport(LogLevel logLevel){
@@ -22,9 +25,9 @@ public class EnumNPE {
 			System.out.print("ERROR");
 			break;
 		default: //这个default是最好要有的，培养良好的编程习惯（防止枚举值增加了，而这个swith没有更新而出现业务异常）
-			//throw new AssertionError("the param is not one of LogLevel");
-			throw new IllegalArgumentException("the param is not one of LogLevel");
-			
+			//if(LOGGER.isInfoEnabled()){
+			//LOGGER.info(new AssertionError("the param"+logLevel+" is not one of LogLevel").getMessage());
+			//}
 		}
 	}
 }
