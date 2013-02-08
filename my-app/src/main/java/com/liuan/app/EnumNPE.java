@@ -28,6 +28,7 @@ public class EnumNPE {
 			//if(LOGGER.isInfoEnabled()){
 			//LOGGER.info(new AssertionError("the param"+logLevel+" is not one of LogLevel").getMessage());
 			//}
+			throw new AssertionError("the param "+logLevel+" is not one of LogLevel");
 		}
 	}
 }
